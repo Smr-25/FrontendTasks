@@ -16,7 +16,7 @@
     align-items: center;
 }
 
-.icon-box img {
+.icon-box svg {
     width: 80px;
     filter: brightness(1000%);
 }
