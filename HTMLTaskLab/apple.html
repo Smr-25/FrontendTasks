@@ -41,7 +41,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            
+
         }
 
         .top-logo img {
@@ -75,12 +75,13 @@
             object-fit: contain;
             background: #ffffff;
             border-radius: 10px;
-           
+
             margin-bottom: 8px;
         }
 
         .product-name {
             margin: 0;
+            padding-bottom: 0;
             font-weight: bold;
             color: #bfdbfe;
         }
@@ -126,6 +127,77 @@
             width: 40px;
             height: 40px;
             object-fit: contain;
+        }
+        /* Responsive dizayn */
+        @media (max-width: 1024px) {
+            ul {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .product-img {
+                max-height: 120px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            ul {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+
+            .product-img {
+                max-height: 100px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                width: 100%;
+            }
+
+            th, td {
+                padding: 6px 8px;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            ul {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .product-img {
+                max-height: 90px;
+            }
+
+            p, ol {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -184,18 +256,22 @@
         <tr>
             <th>Name</th>
             <th>Position</th>
+            <th>Year</th>
         </tr>
         <tr>
             <td>Tim Cook</td>
             <td>CEO</td>
+            <td>2011-Present</td>
         </tr>
         <tr>
             <td>Jony Ive</td>
             <td>Former Chief Design Officer</td>
+            <td>1992-2019</td>
         </tr>
         <tr>
             <td>Steve Jobs</td>
             <td>Co-founder and Former CEO</td>
+            <td>1976-2011</td>
         </tr>
     </table>
 
