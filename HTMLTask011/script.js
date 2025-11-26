@@ -1,18 +1,41 @@
-let boxes = document.querySelectorAll('.box');
-let area1 = document.querySelectorAll('#container1');
-let area2 = document.querySelectorAll('#container2');
-let area3 = document.querySelectorAll('#container3');
-boxes.forEach(box => {
-    box.dragstart() = function () {
-        if(box.id === 'box1' || box.id === 'box2' || box.id === 'box3' || box.id === 'box4') {]
-            area1.ondragover() = function (event) {
-            event.preventDefault();
-            }
-           area1.ondrop() = function (event) {
-            event.preventDefault();
-            area1.appendChild(box);
-           }
+let draggedBox = null;
+
+document.querySelectorAll(".box").forEach(box => {
+    box.addEventListener("dragstart", function () {
+        draggedBox = this;
+    });
+});
+
+document.querySelectorAll(".container1").forEach(area => {
+
+    area.addEventListener("dragover", function (ev) {
+        ev.preventDefault();
+    });
+
+    area.addEventListener("drop", function () {
+        let id = draggedBox.id.replace("box", "");
+        id = Number(id);
+        let areaId = this.id;
+        let canDrop =
+            (areaId === "container1" && id >= 1 && id <= 4) ||
+            (areaId === "container2" && id >= 5 && id <= 8) ||
+            (areaId === "container3" && id >= 9 && id <= 12);
+
+        if (canDrop) {
+            this.appendChild(draggedBox);
+            Swal.fire({
+                title: "Uğurlu!",
+                text: "Box uğurla bu areaya düşdü!",
+                icon: "success",
+                confirmButtonText: "Bağla"
+            });
+        } else {
+            Swal.fire({
+                title: "Xəta!",
+                text: "Bu box bu areaya düşə bilməz!",
+                icon: "error",
+                confirmButtonText: "Bağla"
+            });
         }
-
-    }});
-
+    });
+});
